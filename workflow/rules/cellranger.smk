@@ -41,8 +41,8 @@ def get_local_memory():
 
 rule cellranger_mkref:
     input:
-        fasta='resources/genome.fa.gz',
-        genes='resources/genesets.gtf'
+        fasta=rules.genome.output,
+        genes=rules.genesets.output
     output:
         directory("resources/cellranger_index")
     params:
