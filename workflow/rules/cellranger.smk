@@ -31,10 +31,10 @@ def get_local_memory():
     '''
     Get cellranger mkref memory options.
     '''
-    jobmode = config['mkref']['jobmode']
+    memory_per_cpu = config['mkref']['memory_per_cpu']
     threads = config['mkref']['threads']
     
-    memory_value = config['mkref']['memory_per_cpu'] * threads
+    memory_value = memory_per_cpu * threads
     
     return memory_value
 
