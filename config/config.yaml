@@ -10,4 +10,4 @@ genesets: "ftp://ftp.ensembl.org/pub/release-100/gtf/homo_sapiens/Homo_sapiens.G
 mkref:
     # misc
     threads: 32
-    §memory_per_cpu: 8
+    memory_per_cpu: 8
