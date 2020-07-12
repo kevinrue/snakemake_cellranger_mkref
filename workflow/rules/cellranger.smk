@@ -18,7 +18,7 @@ rule genesets:
     input:
         FTP.remote(config['genesets'])
     output:
-        'resources/genesets.gtf'
+        'resources/genesets.gtf.gz'
     log:
     	'resources/genome.log'
     shell:
