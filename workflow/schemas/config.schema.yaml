@@ -6,9 +6,24 @@ type: object
 
 # possible entries of the config file and which type they should be
 properties:
-  samples:
+  genome:
     type: string
+  genesets:
+    type: string    
+
+  mkref:
+    type: object
+    properties:
+      threads:
+        type: integer
+      memory_per_cpu:
+        type: integer
+    required:
+      - threads
+      - memory_per_cpu
 
 # entries that have to be in the config file for successful validation
 required:
-  - samples
+  - genome
+  - genesets
+  - mkref
