@@ -65,7 +65,7 @@ rule cellranger_mkref:
         --fasta="{input.fasta}.tmp" \
         --genes="{input.genes}.tmp" \
         --nthreads={params.threads} \
-        --memgb={params.memory}
+        --memgb={params.memory} \
         2> {log.err} > {log.out} &&
         mv cellranger_index {output} &&
         rm {input.genes}.tmp {input.fasta}.tmp
