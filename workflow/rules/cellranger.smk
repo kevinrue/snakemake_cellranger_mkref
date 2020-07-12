@@ -25,7 +25,19 @@ rule genesets:
         '''
         mv {input} {output} 2> {log}
         '''
+      
         
+def get_local_memory():
+    '''
+    Get cellranger mkref memory options.
+    '''
+    jobmode = config['cellranger']['jobmode']
+    threads = config['cellranger']['threads']
+    
+    memory_value = config['cellranger']['memory_per_cpu'] * threads
+    
+    return memory_value
+
 
 rule cellranger_mkref:
     input:
