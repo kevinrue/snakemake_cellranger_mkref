@@ -44,7 +44,7 @@ rule cellranger_mkref:
         fasta=rules.genome.output,
         genes=rules.genesets.output
     output:
-        directory("resources/cellranger_index")
+        saindex="results/cellranger_index/star/SAindex"
     params:
         memory=get_local_memory(),
         threads=config['mkref']['threads']
@@ -54,10 +54,13 @@ rule cellranger_mkref:
     resources:
         mem_free_gb=config['mkref']['memory_per_cpu']
     log:
-        err="results/logs/cellranger_mkref.err",
-        out="results/logs/cellranger_mkref.out",
+        err="results/logs/cellranger_mkref/err",
+        out="results/logs/cellranger_mkref/out",
+        time="results/logs/time/cellranger_mkref"
     shell:
         """
+        {DATETIME} >> {log.time} &&
+        rm -rf results/cellranger_index &&
         gunzip -c {input.genes} > {input.genes}.tmp &&
         gunzip -c {input.fasta} > {input.fasta}.tmp &&
         cellranger mkref \
@@ -67,6 +70,8 @@ rule cellranger_mkref:
         --nthreads={params.threads} \
         --memgb={params.memory} \
         2> {log.err} > {log.out} &&
-        mv cellranger_index {output} &&
-        rm {input.genes}.tmp {input.fasta}.tmp
+        mv cellranger_index results/cellranger_index &&
+        mv Log.out results/logs/results/logs/cellranger_mkref/Log.out &&
+        rm {input.genes}.tmp {input.fasta}.tmp &&
+        {DATETIME} >> {log.time}
         """
