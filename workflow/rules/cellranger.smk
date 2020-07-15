@@ -59,7 +59,7 @@ rule cellranger_mkref:
         time="results/logs/time/cellranger_mkref"
     shell:
         """
-        {DATETIME} >> {log.time} &&
+        {DATETIME} > {log.time} &&
         rm -rf results/cellranger_index &&
         gunzip -c {input.genes} > {input.genes}.tmp &&
         gunzip -c {input.fasta} > {input.fasta}.tmp &&
