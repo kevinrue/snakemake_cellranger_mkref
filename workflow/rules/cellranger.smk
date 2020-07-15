@@ -71,7 +71,7 @@ rule cellranger_mkref:
         --memgb={params.memory} \
         2> {log.err} > {log.out} &&
         mv cellranger_index results/cellranger_index &&
-        mv Log.out results/logs/results/logs/cellranger_mkref/Log.out &&
+        mv Log.out results/logs/cellranger_mkref/Log.out &&
         rm {input.genes}.tmp {input.fasta}.tmp &&
         {DATETIME} >> {log.time}
         """
