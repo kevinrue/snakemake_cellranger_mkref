@@ -8,7 +8,7 @@ This workflow is based on instructions obtained from [Creating a Reference Packa
 
 Examples of downstream pipelines:
 
-- [kevinrue/snakemake_cellranger_10x](https://github.com/kevinrue/snakemake_cellranger_10x)
+- [kevinrue/snakemake_cellranger_count](https://github.com/kevinrue/snakemake_cellranger_count)
 
 ## Authors
 
