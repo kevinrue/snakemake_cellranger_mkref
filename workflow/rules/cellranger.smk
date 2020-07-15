@@ -72,6 +72,7 @@ rule cellranger_mkref:
         2> {log.err} > {log.out} &&
         mv cellranger_index results/cellranger_index &&
         mv Log.out results/logs/cellranger_mkref/Log.out &&
-        rm {input.genes}.tmp {input.fasta}.tmp &&
+        rm {input.genes}.tmp &&
+        rm {input.fasta}.tmp &&
         {DATETIME} >> {log.time}
         """
