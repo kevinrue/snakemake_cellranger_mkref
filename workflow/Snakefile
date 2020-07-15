@@ -12,7 +12,9 @@ rule all:
     input:
         # The first rule should define the default target files
         # Subsequent target rules can be specified below. They should start with all_*.
+        "results/cellranger_index/star/SAindex"
 
 
 include: "rules/common.smk"
+include: "rules/cellranger.smk"
 include: "rules/other.smk"
